@@ -1,0 +1,7 @@
+do local Info = {
+  SUDO = "872013743",
+  UserName = "@l3lll3l",
+  token = "1610305144:AAHdSWI6fIHAKXN9wMMeoY7WWh-Wxt51DyY"
+}
+return Info
+end
