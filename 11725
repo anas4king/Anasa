@@ -1,0 +1,932 @@
+<?php
+flush();
+ob_start();
+set_time_limit(0);
+error_reporting(0);
+ob_implicit_flush(1);
+date_default_timezone_set('Asia/Damascus');
+$get_toke = file_get_contents('cyghjko.php');
+$get_token = explode("\n", $get_toke);
+$url_info = file_get_contents("https://api.telegram.org/bot$get_token[0]/getMe");
+$json_info = json_decode($url_info);
+$user = $json_info->result->username;
+$bot_id = $json_info->result->id;
+$API_KEY = $get_token[0];
+define('API_KEY',$API_KEY);
+function bot($method,$datas=[]){
+$url = "https://api.telegram.org/bot".API_KEY."/".$method;
+$linkhelp = "https://t.me/joinchat/AAAAAE9uOxYP0uZmcIw1Zw";
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+$res = curl_exec($ch);
+if(curl_error($ch)){
+var_dump(curl_error($ch));
+}else{
+return json_decode($res);
+    }
+}
+$url_info = file_get_contents("https://api.telegram.org/bot$token/getMe");
+$json_info = json_decode($url_info,true);
+$usernamebot = $json_info['result']['username'];
+$bot_id = $json_info['result']['id'];
+$update = json_decode(file_get_contents('php://input'));
+$message = $update->message;
+$chat_id = $message->chat->id;
+$text = $message->text;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message_id2 = $update->callback_query->message->message_id;
+$data = $update->callback_query->data;
+$name = $message->from->first_name;
+$user = $message->from->username;
+$from_id = $message->from->id;
+$tws = file_get_contents("tw.txt");
+$message = $update->message;
+$chat_id = $message->chat->id;
+$text = $message->text;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message = $update->message;
+$chat_id = $message->chat->id;
+$message_id2 = $update->callback_query->message->message_id;
+$data = $update->callback_query->data;
+$from_id = $message->from->id;
+$fromid= $update->callback_query->from->id;
+$data_name = $update->callback_query->from->first_name;
+$datatag_name = "[$data_name](tg://user?id=$fromid";
+$name = $update->message->from->first_name;
+$from_id = $message->from->id;
+$u = explode("\n",file_get_contents("memb.txt"));
+$c = count($u)-1;
+$modxe = file_get_contents("usr.txt");
+$username = $update->message->from->username;
+$reply = $message->reply_to_message->message_id;
+$list = file_get_contents("blocklist.txt");
+$rep = $message->reply_to_message->forward_from; 
+$id = $rep->id; 
+$K5 = file_get_contents("k.txt");
+$K6 = file_get_contents("k1.txt");
+$sudooo = file_get_contents('sudoc.txt');
+if(!$sudooo){
+$iidsod = "$get_token[1]";
+}elseif($sudooo){
+$iidsod = "$sudooo";
+}
+$admin = $iidsod;
+$message = $update->message;
+$chat_id = $message->chat->id;
+$textmsg = $message->text;
+$user = $message->from->username;
+$name = $message->from->first_name;
+$for = $message->from->id;
+$text = $message->text;
+$chat_id2 = $update->callback_query->message->chat->id;
+$message = $update->message;
+$chat_id = $message->chat->id;
+$message_id2 = $update->callback_query->message->message_id;
+$data = $update->callback_query->data;
+$from_id = $message->from->id;
+$name = $update->message->from->first_name;
+$from_id = $message->from->id;
+$admin2 = file_get_contents("admin2.txt");
+$ad = array("$admin","$admin2");
+$list = file_get_contents("blocklist.txt");
+$ebu = explode("\n",$list);
+if(in_array($from_id,$ebu)){
+ bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"⛳| عزيزي انت محظور من البوت",
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+]);
+}
+$rembo = $message->from->id;
+$from_id = $message->from->id;
+$from_id = $message->from->id;
+mkdir("alsh");
+if(isset($message)){
+$al = file_get_contents('memb.txt');
+$alo = explode("\n",$al);
+if(!in_array($from_id,$alo)){
+$alsh2 = fopen("memb.txt", "a") or die("Unable to open file!");
+fwrite($alsh2, "$from_id\n");
+fclose($alsh2);}}
+$first_name = $message->from->first_name;
+$username = $message->from->username;
+$from_id = $message->from->id;
+$marcus = explode("\n",file_get_contents("memb.txt"));
+$hassan = count($marcus)-1;
+if ($message && !in_array($from_id, $marcus)) {
+file_put_contents("memb.txt", $from_id."\n",FILE_APPEND);
+}
+
+
+
+$mustafa = file_get_contents("mustafa.txt");
+$sta = file_get_contents("start.txt");
+$all = file_get_contents("id.txt");
+$rabt = file_get_contents("rabt.txt");
+$join = file_get_contents("https://api.telegram.org/bot".API_KEY."/getChatMember?chat_id=$all&user_id=".$from_id);
+if($message && (strpos($join,'"status":"left"') or strpos($join,'"Bad Request: USER_ID_INVALID"') or strpos($join,'"status":"kicked"'))!== false){
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+-عَليڪ ﺄلاشتراك بقناة ﺂلبوت الخاصة .💛.
+لأستخدام البوت بشڪل صَحيح 💚.
+اشترك ثم اضغط /start من جديد 💘.",
+'reply_to_message_id'=>$message->message_id,
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"- اضغط ۿنا للأشتراك",'url'=>"$rabt"]],
+]])]);return false;}
+#شتراك 
+$op = file_get_contents("ch.txt");
+$join = file_get_contents("https://api.telegram.org/bot".API_KEY."/getChatMember?chat_id=@$op&user_id=".$from_id);
+if($message && (strpos($join,'"status":"left"') or strpos($join,'"Bad Request: USER_ID_INVALID"') or strpos($join,'"status":"kicked"'))!== false){
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"- عَليڪ ﺄلاشتراك بقناة ﺂلبوت الاولى 💛.
+لأستخدام البوت بشڪل صَحيح 💚.
+اشترك ثم اضغط /start من جديد 💘. * @$op * ؛
+",
+'reply_to_message_id'=>$message->message_id,
+]);return false;}
+#شتراك اجباري2
+$oop = file_get_contents("chc.txt");
+$join = file_get_contents("https://api.telegram.org/bot".API_KEY."/getChatMember?chat_id=@$oop&user_id=".$from_id);
+if($message && (strpos($join,'"status":"left"') or strpos($join,'"Bad Request: USER_ID_INVALID"') or strpos($join,'"status":"kicked"'))!== false){
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"- عَليڪ ﺄلاشتراك بقناة ﺂلبوت الثانيه 💛.
+لأستخدام البوت بشڪل صَحيح 💚.
+اشترك ثم اضغط /start من جديد 💘.* @$oop * ؛",
+'reply_to_message_id'=>$message->message_id,
+]);return false;}
+if($text == "/start" or preg_match('/\/(start)(.*)/', $text)){
+if($information[$chat_id]["coins"] == null){
+$information["$chat_id"]["coins"] = "0";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+if($information[$chat_id]["link"] == null){
+$information["$chat_id"]["link"] = "0";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+}
+}
+$members = explode("\n",file_get_contents("follower.php"));
+$membersc = count($members)-1;
+if($message){
+if(!in_array($chat_id,$members)){
+file_put_contents("follower.php",$chat_id."\n",FILE_APPEND);
+}}
+
+if(preg_match('/\/(start)(.*)/', $text)){
+$ex = explode(' ', $text);
+if($ex[1] != $chat_id){
+if(!in_array($chat_id, $information[$ex[1]]['link'])){
+bot('sendMessage',[
+'chat_id'=>$ex[1] ,
+'text'=>"
+- تم الدخول للرابط الخاص بك 🎖
+- حصلت على ( 1 ) نقاط 💰", 
+]);
+$pluscoin = $information[$ex[1]]["coins"] + 1;
+$information[$ex[1]]["coins"] = $pluscoin;
+$information[$ex[1]]["link"][] = $chat_id;
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+}
+}
+if(preg_match('/\/(start)(.*)/', $text)){
+$ex = explode(' ', $text);
+if($ex[1] == $chat_id){
+bot('sendMessage',[
+'chat_id'=>$ex[1] ,
+'text'=>"
+-  لاتستطيع الدخول من الرابط الخاص بك ⚠️ ", 
+]);
+}
+}
+$join = file_get_contents("https://api.telegram.org/bot".API_KEY."/getChatMember?chat_id=@Templar_Source&user_id=".$chat_id);
+if($update && (strpos($join,'"status":"left"') or strpos($join,'"Bad Request: USER_ID_INVALID"') or strpos($join,'"status":"kicked"'))!== false){
+bot('sendMessage', [
+'chat_id'=>$chat_id,
+'text'=>"
+- اشترك في القناة ( @Templar_Source ) ✅
+
+- وحصل على 5 نقاط 💰",
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"تحقق الانضمام ♻️",'callback_data'=>"chek"]],
+]])
+]);return false;}
+$join = file_get_contents("https://api.telegram.org/bot".API_KEY."/getChatMember?chat_id=@Templar_Source&user_id=".$chat_id2);
+if($update && (strpos($join,'"status":"left"') or strpos($join,'"Bad Request: USER_ID_INVALID"') or strpos($join,'"status":"kicked"'))!== false){
+bot('sendMessage', [
+'chat_id'=>$chat_id,
+'text'=>"
+- اشترك في القناة ( @Templar_Source ) ✅
+
+- وحصل على 5 نقاط 💰",
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"تحقق الانضمام ♻️",'callback_data'=>"chek"]],
+]])
+]);return false;}
+if(!in_array($chat_id2,$chek["list"])){
+if($data == "chek"){
+$chek["list"][] = $chat_id2;
+$chek = json_encode($chek,true);
+file_put_contents("chek.json",$chek);
+$wq = $information[$chat_id2]["coins"] + 5;
+$information[$chat_id2]["coins"] = $wq;
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+}
+if($text == "/start" or preg_match('/\/(start)(.*)/', $text)){
+$ex = explode(" ",$text);
+if($ex[1] != "Update"){
+for ($i=0; $i < count($blok); $i++) {
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$blok[$i]."/SendChatAction?chat_id=".$chat_id."&action=typing"),true)["ok"];
+if(!$result){
+file_put_contents("$chat_id.php","$blok[$i]"."\n",FILE_APPEND);
+}}
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- *عدد نقاطك : $coins*  💰
+- قم بجمع النقاط وستبدلها بأعضاء للبوت الخاص بك 👤
+- 🆔: `$chat_id`
+
+- ",
+'reply_to_message_id'=>$message->message_id,
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"تجميع النقاط 💰",'callback_data'=>"coin"],['text'=>"طلب اعضاء 👤",'callback_data'=>"get"]],
+[['text'=>"تحويل النقاط 📤",'callback_data'=>"code"],['text'=>"طلباتي 📂",'callback_data'=>"tt"]],
+[['text'=>"معلومات تفصيلية عن البوت ⁉️",'callback_data'=>"info"],
+['text'=>"اصنع بوتك ✅" ,  'url'=>"https://t.me/B7jbot"]],
+]])
+]);
+$get = file_get_contents("$chat_id.php");
+$ex = explode("\n",$get);
+$userinfo[$chat_id] = $ex;
+$userinfo = json_encode($userinfo,true);
+file_put_contents("$chat_id.json",$userinfo);
+unlink("$chat_id.php");
+}}
+
+if($data == "get"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+نقاطك : $coins2 💰
+كل 1 💰 نقاط تساوي عضو 1 👤
+1 💰 = 1 👤",
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"10 👤",'callback_data'=>"10"],['text'=>"15 👤",'callback_data'=>"15"],['text'=>"20 👤",'callback_data'=>"20"]],
+[['text'=>"25 👤",'callback_data'=>"25"],['text'=>"30 👤",'callback_data'=>"30"],['text'=>"35 👤",'callback_data'=>"35"]],
+[['text'=>"40 👤",'callback_data'=>"40"],['text'=>"45 👤",'callback_data'=>"45"],['text'=>"50 👤",'callback_data'=>"50"]],
+[['text'=>"60 👤",'callback_data'=>"60"],['text'=>"70 👤",'callback_data'=>"70"],['text'=>"80 👤",'callback_data'=>"80"]],
+[['text'=>"90 👤",'callback_data'=>"90"],['text'=>"100 👤",'callback_data'=>"100"],['text'=>"120 👤",'callback_data'=>"120"]],
+[['text'=>"200 👤 + 30 Free",'callback_data'=>"200"]],
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+}
+
+$array = ["30","40","50","60","70","80","90","100","120","200","10","15","20","25","30","35","40","45"];
+if(in_array($data,$array)){
+if($coins2 >= $data){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+*حسنا عزيزي قم بأرسال توكن البوت* ✅
+
+1- عند حذف لبوت سيتم حذف الطلب وخسارة النقاط
+2- عند تغيير توكن البوت ستخسر نقاطك ويتم حذف طلبك ايضا
+3- مدة الطلب لا تتجاوز ال 12 ساعة 
+
+➖ @SuSSusS  ✅.",
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+$information["$chat_id2"]["token"] = "on";
+$information["$chat_id2"]["iusercont"] = "$data";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}}
+if(in_array($data,$array)){
+if($coins2 < $data){
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"
+- ليس لديك نقاط كافية 💰
+- قم بجمع النقاط اولا ثم ستبدلهم بلاعضاء 📤
+➖➖➖➖➖➖➖➖",
+'show_alert'=>1
+]);
+}
+}
+$time = date("Y/m/d");
+$Test = file_get_contents("https://api.telegram.org/bot$text/getWebhookInfo");
+$step_finsh = json_decode($Test);
+if($information[$chat_id]["token"] == "on"){
+if($step_finsh->ok == "true"){
+$url = json_decode(file_get_contents("https://api.telegram.org/bot$text/getMe"))->result;
+$user = $url->username;
+$nameb = $url->first_name;
+if(!in_array($text,$blok)){
+$information["tokens"][] = "$text";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+$information["$chat_id"]["token"] = "of";
+$information["tokencont"][$user] = $information[$chat_id]["iusercont"];
+$information["$chat_id"]["coins"] = $coins-$contusers;
+$information["$chat_id"]["tlb"] = "
+- تمويل البوت : ( $user ) ✅
+- عدد الطلب : ( $contusers ) 👤
+- تاريخ الطلب : ( $time )";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- جاري تمويل ( $contusers ) اعضاء للبوت : *(* [$nameb](t.me/$user) *)*
+
+- يتم تنفيذ الطلبات بشكل متسلسل ⌛️
+
+1- عند حذف لبوت سيتم حذف الطلب وخسارة النقاط
+2- عند تغيير توكن البوت ستخسر نقاطك ويتم حذف طلبك ايضا
+3- مدة الطلب لا تتجاوز ال 12 ساعة ",
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([
+'inline_keyboard'=>[
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+}}
+$testt = $information[$chat_id2]["tlb"];
+if($data == "tt"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"$testt",
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+}
+
+
+if(preg_match('/\/(start)(.*)/', $text)){
+$ex = explode(' ', $text);
+if($ex[1] == "Update"){
+for ($i=0; $i < count($blok); $i++) {
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$blok[$i]."/SendChatAction?chat_id=".$chat_id."&action=typing"),true)["ok"];
+if(!$result){
+file_put_contents("$chat_id.php","$blok[$i]"."\n",FILE_APPEND);
+}}
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- تم اكتمال التحديث  ✅
+
+- قم بجمع النقاط الان وستبدلها بأعضاء حقيقيين لبوتك 
+
+➖ @Templar_Source  ✅.",
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"تجميع النقاط 💰",'callback_data'=>"5bot"]],
+[['text'=>"رجوع",'callback_data'=>"back"],
+['text'=>"اصنع بوتك ✅" ,  'url'=>"https://t.me/B7jbot"]],
+]])
+]);
+$get = file_get_contents("$chat_id.php");
+$ex = explode("\n",$get);
+$userinfo[$chat_id] = $ex;
+$userinfo = json_encode($userinfo,true);
+file_put_contents("$chat_id.json",$userinfo);
+unlink("$chat_id.php");
+}}
+
+if($data == "coin"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+- عدد نقاطك 💰: $coins2 
+🔦 الاشتراك بلبوتات ( 💰 3 )
+🌀 مشاركة الـرابــط ( 💰 3 )
+🎁 الهدية اليـوميــة ( 💰 5 )
+
+➖ @SuSSusS  ✅.",
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"اشتراك بوتات 🔦",'callback_data'=>"5bot"]],
+[['text'=>"الهدية اليومية 🎁",'callback_data'=>"z"],['text'=>"مشاركة الرابط Ⓜ️",'callback_data'=>"link"]],
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+}
+
+
+if($data == "link"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+م بمشاركة رابط الدعوة الخاص بك لزيادة نقاطك
+ستحصل على 3 نقطة عندما يدخل مستخدم جديد من خلال رابط الدعوة الخاص بك 💰.
+
+الرابط الخاص بك ❕:
+https://t.me/$userr?start=$chat_id2
+
+عدد نقاطك 💰: $coins2 
+
+عدد مشاركاتك 🔥: ".count($information[$chat_id2]["link"]),
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+}
+
+
+if($data == "5bot"){
+$json1 = $userinfo2[$chat_id2];
+$r = $json1[array_rand($json1,1)];
+$Test = file_get_contents("https://api.telegram.org/bot$r/getWebhookInfo");
+$step_finsh = json_decode($Test);
+if($step_finsh->ok == "true"){
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$r/getMe"))->result;
+$userb = $url2->username;
+$nameb = $url2->first_name;
+$how = array_search($r,$userinfo2[$chat_id2]);
+unset($userinfo2[$chat_id2]["$how"]);
+$userinfo2[$chat_id2]=array_values($userinfo2[$chat_id2]);
+$userinfo2 = json_encode($userinfo2,true);
+file_put_contents("$chat_id2.json",$userinfo2);
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+- *عدد نقاطك* : $coins2 💰
+
+- *اسم البوت* : $nameb
+
+- *يوزر البوت* : [@$userb]
+
+- *اشترك في البوتات للحصول على 1 نقاط* 
+",
+'disable_web_page_preview'=>true,
+'parse_mode'=>"MarkDown",
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"ابلاغ 📛",'callback_data'=>"report $r"]],
+[['text'=>"تحقق الاشتراك ♻️",'callback_data'=>"chek $r"],['text'=>"التالي ➕",'callback_data'=>"next"]],
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+$information[$chat_id2]["خزن البوت"] = "$r";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}}
+$saved = $information[$chat_id2]["خزن البوت"];
+if($data == "next"){
+$json1 = $userinfo2[$chat_id2];
+$r = $json1[array_rand($json1,1)];
+$Test = file_get_contents("https://api.telegram.org/bot$r/getWebhookInfo");
+$step_finsh = json_decode($Test);
+if($step_finsh->ok == "true"){
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$r/getMe"))->result;
+$userb = $url2->username;
+$nameb = $url2->first_name;
+$how = array_search($r,$userinfo2[$chat_id2]);
+unset($userinfo2[$chat_id2]["$how"]);
+$userinfo2[$chat_id2]=array_values($userinfo2[$chat_id2]);
+$userinfo2 = json_encode($userinfo2,true);
+file_put_contents("$chat_id2.json",$userinfo2);
+if(count($information["$userb"]['userlist']) > $information["tokencont"][$userb]){
+$unset = array_search($r,$information["tokens"]);
+unset($information["tokens"]["$unset"]);
+$information["tokens"]=array_values($information["tokens"]);
+unset($information[$userb]["userlist"]);
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+- *عدد نقاطك* : $coins2 💰
+
+- *اسم البوت* : $nameb
+
+- *يوزر البوت* : [@$userb]
+
+- *اشترك في البوتات للحصول على 1 نقاط* 
+",
+'disable_web_page_preview'=>true,
+'parse_mode'=>"MarkDown",
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"ابلاغ 📛",'callback_data'=>"report $r"]],
+[['text'=>"تحقق الاشتراك ♻️",'callback_data'=>"chek $r"],['text'=>"التالي ➕",'callback_data'=>"next"]],
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+$information[$chat_id2]["خزن البوت"] = "$r";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}else{
+$how = array_search($r,$userinfo2[$chat_id2]);
+unset($userinfo2[$chat_id2]["$how"]);
+$userinfo2[$chat_id2]=array_values($userinfo2[$chat_id2]);
+$userinfo2 = json_encode($userinfo2,true);
+file_put_contents("$chat_id2.json",$userinfo2);
+$unset = array_search($r,$information["tokens"]);
+unset($information["tokens"]["$unset"]);
+$information["tokens"]=array_values($information["tokens"]);
+unset($information[$userb]["userlist"]);
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}}
+
+if(preg_match("/(report )/",$data)){
+$ex = explode("report ",$data);
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$ex[1]/getMe"))->result;
+$usenamebot = $url2->username;
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"
+- تم الابلاغ عن البوت 📛
+- شكرا لمساعدتك ❤️",
+'show_alert'=>1
+]);
+bot('sendMessage',[
+'chat_id'=>"827317426",
+'text'=>"
+- ابلاغ عن البوت : @$usenamebot
+- التوكن : $ex[1]",
+]);
+}
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$saved/getMe"))->result;
+$usenamebot = $url2->username;
+if(!in_array($chat_id2,$information[$usenamebot]['userlist'])){
+if(preg_match("/(chek )/",$data)){
+$ex = explode("chek ",$data);
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$ex[1]."/SendChatAction?chat_id=".$chat_id2."&action=typing"),true)["ok"];
+if($result){
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"انت مشترك في البوت لقد حصلت على 1 نقطة 💰",
+'show_alert'=>1
+]);
+$pluscoin = $information[$chat_id2]["coins"] + 1;
+$information[$chat_id2]["coins"] = $pluscoin;
+$information["$usenamebot"]['userlist'][] = "$chat_id2";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+$how = array_search($saved,$userinfo2[$chat_id2]);
+unset($userinfo2[$chat_id2]["$saved"]);
+$userinfo2[$chat_id2]=array_values($userinfo2[$chat_id2]);
+$userinfo2 = json_encode($userinfo2,true);
+file_put_contents("$chat_id2.json",$userinfo2);
+}
+}
+}
+if(!in_array($chat_id2,$information[$usenamebot]['userlist'])){
+if(preg_match("/(chek )/",$data)){
+$ex = explode("chek ",$data);
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$ex[1]."/SendChatAction?chat_id=".$chat_id2."&action=typing"),true)["ok"];
+if(!$result){
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"قم بلدخول للبوت ثم اضغط تحقق ♻️ ",
+'show_alert'=>1
+]);
+}
+}}
+if(in_array($chat_id2,$information[$usenamebot]['userlist'])){
+if(preg_match("/(chek )/",$data)){
+$ex = explode("chek ",$data);
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$ex[1]."/SendChatAction?chat_id=".$chat_id2."&action=typing"),true)["ok"];
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"لقد اخذت النقاط مقابل الاشتراك لهذه البوت مسبقا ♻️ ",
+'show_alert'=>1
+]);
+$how = array_search($saved,$userinfo2[$chat_id2]);
+unset($userinfo2[$chat_id2]["$saved"]);
+$userinfo2[$chat_id2]=array_values($userinfo2[$chat_id2]);
+$userinfo2 = json_encode($userinfo2,true);
+file_put_contents("$chat_id2.json",$userinfo2);
+}
+}
+
+if($data == "code"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+- عدد نقاطك 💰: $coins2 
+
+- أولاً وجب التنبيه ان أي شخص يتعرض للأحتيال من خلال بيع وشراء النقاط في البوت سيتحمل فقدانها بنفسه ولن يكون هناك تعويض اذا تم الاحتيال عليك 
+- تذكر يمكنك شراء النقاط من مبرمج البوت بدلاً من اطراف خارجيه غير معروفة لضمان حقك 
+➖➖➖➖➖➖➖➖",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"متابعة ✅",'callback_data'=>"ok"]],
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+}
+if($data == "ok"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+- عدد نقاطك 💰: $coins2 
+
+- حسنا عزيزي قم بأرسال ايدي الشخص مع العدد المطلوب تحويلة مع فراغ بين الايدي والعدد المطلوب
+
+- الايدي اولا ثم فراغ ثم العدد
+
+- كمثال : 656590695 60
+
+ ملاحظة : سيتم استقطاع 40 نقطة منك كلفة التحويل 
+➖➖➖➖➖➖➖➖",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+$information["$chat_id2"]['send'] = "ok";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+
+if($data == "info"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+-  *تم العمل وتطوير البوت بواسطة* : *(* [حمـۈد ﭑࢦ دݪيـم 𖤍](t.me/QoQo6) *)* ✅
+
+- *قناة البوت الخاصة بلتحديثات * : *(* [Get Bot M👤➕](t.me/Templar_Source) *)*
+
+- ماهو البوت وماهو غرضة* : البوت هوه عبارة عن تجميع النقاط وستبدالهم بأعضاء حقيقين لبوت يمكنك عرض البوت لكل نقطه واحده عضو واحد*
+- *كيف اجمع النقاط* : يمكنك جمع النقاط بثلاث طرق الطريقة الاولى الاشتراك بلبوتات والحصول على 3 نقاط لكل شتراك الطريقة الثانيه مشاركة الرابط ستحصل على 3 نقاط لكل مشترك والطريقة الثالثه الهدية اليوميه ستضاف قريبا
+
+➖➖➖➖➖➖➖➖",
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+}
+if($information[$chat_id]["send"] == "ok"){
+if(preg_match('/^([0-9])/',$text)){
+$ex = explode(' ', $text);
+$cut = $coins + 30;
+$cut2 = $ex[1] + 30;
+if($coins >= $ex[1]){
+bot('sendMessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- حسنا عزيزي تم تحويل النقاط بنجاح ✅
+
+- تم استقطاع 30 من نقاطك ككلفة تحويل 💰
+
+- ملاحظه : لن تستطيع استرداد النقاط بعد هذه العملية حتى في حال وجود اخطاء ", 
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"رجوع",'callback_data'=>"back"]],
+]])
+]);
+$information["$chat_id"]['send'] = "not";
+$pluscoin = $information[$ex[0]]["coins"] + $ex[1];
+$information[$ex[0]]["coins"] = $pluscoin;
+$information[$chat_id]["coins"] = $information[$chat_id]["coins"] - $cut2;
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+}}
+if($data == "back" or $data == "chek"){
+bot('EditMessagetext',[
+'chat_id'=>$chat_id2,
+'message_id'=>$message_id,
+'text'=>"
+- *عدد نقاطك : $coins2* 💰
+- قم بجمع النقاط وستبدلها بأعضاء للبوت الخاص بك 👤
+- 🆔: `$chat_id2`
+",
+'reply_to_message_id'=>$message->message_id,
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"تجميع النقاط 💰",'callback_data'=>"coin"],['text'=>"طلب اعضاء 👤",'callback_data'=>"get"]],
+[['text'=>"تحويل النقاط 📤",'callback_data'=>"code"],['text'=>"طلباتي 📂",'callback_data'=>"tt"]],
+[['text'=>"معلومات تفصيلية عن البوت ⁉️",'callback_data'=>"info"],
+['text'=>"اصنع بوتك ✅" ,  'url'=>"https://t.me/B7jbot"]],
+]])
+]);
+$information["$chat_id2"]['send'] = "not";
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+
+
+if($data == "z"){
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"قريبا ..🎁 ",
+'show_alert'=>1
+]);
+}
+
+if($ledar == $chat_id){
+if(preg_match('/\/(info)(.*)/', $text)){
+$wx = explode("/info ",$text);
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$wx[1]/getMe"))->result;
+$userb = $url2->username;
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- $userb
+- عدد مشتركين البوت: ". count($information[$userb]["userlist"]),
+'reply_to_message_id'=>$message->message_id,
+]);
+}
+}
+
+if($ledar == $chat_id){
+if(preg_match('/\/(dell)(.*)/', $text)){
+$wx = explode("/dell ",$text);
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$wx[1]/getMe"))->result;
+$userb = $url2->username;
+$un = $wx[1];
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- $userb
+- تم حذف البوت: ". $userb,
+'reply_to_message_id'=>$message->message_id,
+]);
+$unset = array_search($un,$information["tokens"]);
+unset($information["tokens"]["$unset"]);
+$information["tokens"]=array_values($information["tokens"]);
+unset($information[$userb]["userlist"]);
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+}
+}
+
+
+/*
+
+leader =====================================================================
+
+============================================================================
+
+*/
+
+if($ledar == $chat_id){
+if($text == "/user"){
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- عدد المشتركين الكلي : ". $membersc,
+'reply_to_message_id'=>$message->message_id,
+]);
+}
+}
+
+$chat_id2 = $update->callback_query->from->id;
+$leder = json_decode(file_get_contents("leder.json"),true);
+
+if($text == "un"){
+unlink("leder.json");
+}
+if(preg_match('/\/(sett)(.*)/', $text)){
+$ex = explode("/sett ",$text);
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$ex[1]/getMe"))->result;
+$userb = $url2->username;
+$nameb = $url2->first_name;
+bot('sendmessage',[
+'chat_id'=>$chat_id,
+'text'=>"
+- جاري تمويل البوت : $userb
+",
+'reply_to_message_id'=>$message->message_id,
+]);
+$leder['leder'] = "$ex[1]";
+$leder = json_encode($leder,true);
+file_put_contents("leder.json",$leder);
+}
+$leder2 = $leder["leder"];
+if(preg_match('/\/(ok)(.*)/', $text)){
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$leder2/getMe"))->result;
+$userb = $url2->username;
+$nameb = $url2->first_name;
+bot('sendMessage', [
+'chat_id'=>"@SUSSUSS",
+'text'=>"
+- اشترك في البوت *(* [$nameb](t.me/$userb) *)*  ✅
+
+- وحصل على 10 نقاط 💰",
+'parse_mode'=>"MarkDown",
+'disable_web_page_preview'=>true,
+'reply_markup'=>json_encode([ 
+'inline_keyboard'=>[
+[['text'=>"تحقق الانضمام ♻️",'callback_data'=>"led1 $leder2"]],
+]])
+]);
+}
+
+$chat_id2 = $update->callback_query->from->id;
+$url2 = json_decode(file_get_contents("https://api.telegram.org/bot$saved/getMe"))->result;
+$usenamebot = $url2->username;
+if(!in_array($chat_id2,$leder['userlist'])){
+if(preg_match("/(led1 )/",$data)){
+$ex = explode("led1 ",$data);
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$ex[1]."/SendChatAction?chat_id=".$chat_id2."&action=typing"),true)["ok"];
+if($result){
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"انت مشترك في البوت لقد حصلت على 10 نقاط 💰 ",
+'show_alert'=>1
+]);
+$pluscoin = $information[$chat_id2]["coins"] + 10;
+$information[$chat_id2]["coins"] = $pluscoin;
+$information = json_encode($information,true);
+file_put_contents("information.json",$information);
+$leder['userlist'][] = "$chat_id2";
+$leder = json_encode($leder,true);
+file_put_contents("leder.json",$leder);
+
+}
+}
+}
+if(!in_array($chat_id2,$leder['userlist'])){
+if(preg_match("/(led1 )/",$data)){
+$ex = explode("led1 ",$data);
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$ex[1]."/SendChatAction?chat_id=".$chat_id2."&action=typing"),true)["ok"];
+if(!$result){
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"قم بلدخول للبوت ثم اضغط تحقق ♻️  ",
+'show_alert'=>1
+]);
+}
+}}
+if(in_array($chat_id2,$leder['userlist'])){
+if(preg_match("/(led1 )/",$data)){
+$ex = explode("led1 ",$data);
+$result = json_decode(file_get_contents("https://api.telegram.org/bot".$ex[1]."/SendChatAction?chat_id=".$chat_id2."&action=typing"),true)["ok"];
+bot('answerCallbackQuery',[
+'callback_query_id'=>$update->callback_query->id,
+'text'=>"لقد اخذت النقاط مقابل الاشتراك لهذه البوت مسبقا ♻️  ",
+'show_alert'=>1
+]);
+}
+}
+
+if($text == "/upload"){
+$user = (file_get_contents("information.json"));
+file_put_contents("Get Bot M👤➕.json",$user);
+bot('senddocument',[
+'chat_id'=>$chat_id,
+'document'=>new CURLFile("Get Bot M👤➕.json"),
+'caption'=>"
+- Your Bot Info : @$userr
+- $time"
+]);
+unlink("Get Bot M👤➕.json");
+}
